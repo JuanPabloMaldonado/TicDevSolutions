@@ -1,13 +1,13 @@
-datos {border:1px solid #ccc;padding:10px;font-size:50px;}
+datos {border:1px solid #ccc;padding:10px;font-size:100px;}
 
-datos tr:nth-child(even) {background:#ccc;}
+        datos tr:nth-child(even) {background:#ccc;}
 
-datos td {padding:5px;}
+        datos td {padding:5px;}
 
-datos tr.noSearch {background:White;font-size:500px}
+        datos tr.noSearch {background:White;font-size:100px;}
 
-datos tr.noSearch td {padding-top:10px;text-align:right;}
+        datos tr.noSearch td {padding-top:10px;text-align:right;}
 
-.hide {display:none;}
+        .hide {display:none;}
 
-.red {color:Red;}
+        .red {color:Red;}

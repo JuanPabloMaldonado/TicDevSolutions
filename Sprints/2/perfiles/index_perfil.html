@@ -1,36 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" >
 <head>
-	<title>Profile Page</title>
-	<link rel="stylesheet" type="text/css" href="./perfil.css">
-    <link rel="script" type="js" href="./perfil_funciones.js">
+  <meta charset="UTF-8">
+  <title>Profiles</title>
+  <link rel="stylesheet" href="./perfil.css">
+
 </head>
 <body>
-    <h1>Buscar en el contenido de una tabla</h1>
+<!-- partial:index.partial.html -->
+<h1>Buscar en el contenido de una tabla</h1>
+
     <form>
+
         Texto a buscar <input id="searchTerm" type="text" onkeyup="doSearch()" />
+
     </form>
+
     <p>
+
         <table id="datos">
+
             <tr>
+
                 <th>id</th><th>Nombre</th><th>Apellidos</th><th>Sexo</th><th>Edad</th>
+
             </tr>
+
             <tr>
+
                 <td>1</td><td>Juan</td><td>Perez</td><td>M</td><td>30</td>
+
             </tr>
+
             <tr>
+
                 <td>2</td><td>Jose</td><td>Vazquez</td><td>M</td><td>31</td>
+
             </tr>
+
             <tr>
+
                 <td>3</td><td>Luis</td><td>Astorga</td><td>M</td><td>25</td>
+
             </tr>
+
             <tr>
+
                 <td>4</td><td>Luisa</td><td>Valdes</td><td>F</td><td>56</td>
+
             </tr>
+
             <tr class='noSearch hide'>
+
                 <td colspan="5"></td>
+
             </tr>
+
         </table>
+
     </p>
+<!-- partial -->
+  <script  src="./perfil_funciones.js"></script>
+
 </body>
 </html>
