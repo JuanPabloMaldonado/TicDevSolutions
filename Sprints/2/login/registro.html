@@ -18,7 +18,7 @@
         <div class="wrapper wrapper--w790">
             <div class="card card-5">
                 <div class="card-heading">
-                    <h2 class="title">Registro nuevo</h2>
+                    <h2 class="title">Registro nuevos usuarios</h2>
                 </div>
                 <div class="card-body">
                     <form method="POST">
@@ -29,13 +29,13 @@
                                     <div class="col-2">
                                         <div class="input-group-desc">
                                             <input class="input--style-5" type="text" name="first_name">
-                                            <label class="label--desc">Primer nombre</label>
+                                            <label class="label--desc">Nombre</label>
                                         </div>
                                     </div>
                                     <div class="col-2">
                                         <div class="input-group-desc">
                                             <input class="input--style-5" type="text" name="last_name">
-                                            <label class="label--desc">Segundo nombre</label>
+                                            <label class="label--desc">Apellido</label>
                                         </div>
                                     </div>
                                 </div>
@@ -54,7 +54,7 @@
                             <div class="name">Fecha de nacimiento</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="text" name="fn"
+                                    <input class="input--style-5" type="date" name="fn"
                                         placeholder="Ejemplo: dd/mm/aaaa">
                                 </div>
                             </div>
@@ -69,15 +69,15 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="name">Rol</div>
+                            <div class="name">Tipo usuario</div>
                             <div class="value">
                                 <div class="input-group">
                                     <div class="rs-select2 js-select-simple select--no-search">
-                                        <select name="subject">
+                                        <select class="input--style-5" name="subject">
                                             <option disabled="disabled" selected="selected">Elige opción</option>
-                                            <option>Administrador</option>
+                                            <option>Cliente</option>
                                             <option>Vendedor</option>
-                                            <option>Usuario</option>
+                                            <!--option>Usuario</option-->
                                         </select>
                                         <div class="select-dropdown"></div>
                                     </div>
@@ -89,7 +89,7 @@
                             <div class="d-flex align-items-center">
                                 <label class="control control--checkbox mb-0"><span class="caption">Creando una cuenta acepta <a href="#">Términos y condiciones</a> y nuestra <a
                                             href="#">Política de privacidad</a>.</span>
-                                    <input type="checkbox" checked="">
+                                    <input type="checkbox" >
                                     <div class="control__indicator"></div>
                                 </label>
                             </div>
