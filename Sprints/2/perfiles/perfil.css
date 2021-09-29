@@ -1,13 +1,73 @@
-datos {border:1px solid #ccc;padding:10px;font-size:100px;}
+        .body{
+        margin: 15px;
+        padding: 40px;
+        background-color: whitesmoke;
+        background-size: cover;
+        background-repeat: no-repeat;
+        align-content: center;
+        height: auto;
+        font-family: 'Numans', sans-serif;
+        border: black 2px solid;
+        border-radius: 5px;
+        }
 
-        datos tr:nth-child(even) {background:#ccc;}
+        .container-body{
+                margin: 40px;
+                padding: 15px;
+                background-color: #665e467c;
+                background-size: cover;
+                background-repeat: no-repeat;
+                align-content: center;
+                height: auto;
+                font-family: 'Numans', sans-serif;
+                border: black 2px solid;
+                border-radius: 5px;
+        }
+        
+        .container-title{
+                padding: 10px;
+                text-align: center;
+        }
+        
+        .container-table{
+            height: auto;
+            align-content: center;
+            margin-top: 5%;
+            background-color: whitesmoke;
+        }
 
-        datos td {padding:5px;}
+        .buscador{
+             padding-right:10px;
+             text-align: right;
+                 
+        }
 
-        datos tr.noSearch {background:White;font-size:100px;}
+        .table{
+               background-color: rgba(255, 255, 255, 0.815); 
+               
+                margin-top: auto;
+                margin-bottom: auto;
+                text-align-last: justify;
+                text-align: center ;
+                padding: 1px;
+                
+                
+                border: black 2px solid;
+                
+        
+        }
+        
+        .renglon{
+                align-items: center;  
+        }
 
-        datos tr.noSearch td {padding-top:10px;text-align:right;}
-
-        .hide {display:none;}
-
-        .red {color:Red;}
+        .modificadores{
+                padding: 15px;
+                border-spacing: 10px;
+                text-align: left;
+                white-space: pre-line;
+        }
+        
+        .boton{
+                padding: 20px;
+        }

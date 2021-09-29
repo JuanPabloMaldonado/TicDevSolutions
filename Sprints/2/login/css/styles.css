@@ -12,10 +12,8 @@ font-family: 'Numans', sans-serif;
 height: auto;
 align-content: center;
 }
-.container2{
-    height: auto;
-    align-content: center;
-    margin-top: 5%;
+.container-body{
+    background-color: whitesmoke;
 }
 .card{
 height: auto;

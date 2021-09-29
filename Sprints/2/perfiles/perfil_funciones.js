@@ -1,91 +1,44 @@
-function doSearch()
+let productos = [
+    ["ID","Nombre","Apellido","Sexo","Edad"],
+    ["001","Juan","Perez","M","32"],
+    ["002","Maria","Olarte","F","35"],
+    ["003","Alexei","Muller","M","29"],
+    ["004","Ana","Otalora","F","43"],
+    ["005","Mark","Oviedo","M","40"]]
 
-        {
+let newId = 0;
+let ind = 0;
+let newdata = "";
 
-            const tableReg = document.getElementById('datos');
 
-            const searchText = document.getElementById('searchTerm').value.toLowerCase();
-
-            let total = 0;
-
- 
-
-            // Recorremos todas las filas con contenido de la tabla
-
-            for (let i = 1; i < tableReg.rows.length; i++) {
-
-                // Si el td tiene la clase "noSearch" no se busca en su cntenido
-
-                if (tableReg.rows[i].classList.contains("noSearch")) {
-
-                    continue;
-
-                }
-
- 
-
-                let found = false;
-
-                const cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
-
-                // Recorremos todas las celdas
-
-                for (let j = 0; j < cellsOfRow.length && !found; j++) {
-
-                    const compareWith = cellsOfRow[j].innerHTML.toLowerCase();
-
-                    // Buscamos el texto en el contenido de la celda
-
-                    if (searchText.length == 0 || compareWith.indexOf(searchText) > -1) {
-
-                        found = true;
-
-                        total++;
-
+let getProducts = (data) => {
+    productos.forEach((element)=>{
+        
+                let div = document.createElement("div");
+                div.className="table";
+                for (let m=0; m<element.length; m++){
+                
+                    let id = document.createTextNode(element[m]+ "\t" );
+                    div.style.gridColumnGap= "50px";
+                    id.className="renglon";
+                    div.appendChild(id);
+                    let contenedor = document.getElementById("table");
+                        for (let n=0; n<productos.length; n++){
+                            contenedor.appendChild(div);
+                        }                               
                     }
+    });
+}
+getProducts(productos);
 
-                }
+document.getElementById("modify").onclick = function Modificar(){
+        newId=parseInt(document.getElementById('idIngresado'));
+        ind=(parseInt(document.getElementById("indexIngresado")))-1;
+        newdata = document.getElementById("cambioIngresado").outerHTML;
+       
+        
+        return newId, newdata, ind;
+}
 
-                if (found) {
-
-                    tableReg.rows[i].style.display = '';
-
-                } else {
-
-                    // si no ha encontrado ninguna coincidencia, esconde la
-
-                    // fila de la tabla
-
-                    tableReg.rows[i].style.display = 'none';
-
-                }
-
-            }
-
- 
-
-            // mostramos las coincidencias
-
-            const lastTR=tableReg.rows[tableReg.rows.length-1];
-
-            const td=lastTR.querySelector("td");
-
-            lastTR.classList.remove("hide", "red");
-
-            if (searchText == "") {
-
-                lastTR.classList.add("hide");
-
-            } else if (total) {
-
-                td.innerHTML="Se ha encontrado "+total+" coincidencia"+((total>1)?"s":"");
-
-            } else {
-
-                lastTR.classList.add("red");
-
-                td.innerHTML="No se han encontrado coincidencias";
-
-            }
-
-        }
+console.log(productos);
+console.log(newId, ind, newdata);
