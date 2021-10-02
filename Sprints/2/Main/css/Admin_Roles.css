@@ -1,6 +1,7 @@
 .mb-4, .card{
 
     margin-left: 30px;
+    margin-right: 30px;
     align-content:center;
     
 }
@@ -10,4 +11,15 @@
  text-align: right;
  margin-right: 5px;
 
+}
+
+.btn-modify{
+    padding-top: 10px;
+    margin: right 0%;;
+}
+
+.container-flex.px4{
+
+    margin-top: 100px;
+    margin-right: 10px;
 }
