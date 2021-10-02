@@ -77,7 +77,24 @@
                                             </div>                                      
                                             
                                             <div class="mt-4 mb-0">
-                                                <div class="d-grid"><a class="btn btn-primary btn-block" href="login.html">Actualizar</a></div>
+                                                <div class="d-grid"><a class="btn btn-primary btn-block" oneclick="sweetalertclick" href="#">Actualizar</a></div>
+                                                <script>
+                                                    //Funcion ventana emergente registro
+                                                    function sweetalertclick(){
+                                                        Swal.fire({
+                                                            title: 'Desea actualizar los datos del usuario?',
+                                                            showDenyButton: true,
+                                                            showCancelButton: false,
+                                                            confirmButtonText: 'Guardar',
+                                                            denyButtonText: `No guardar`,
+                                                        }).then((result) => {
+                                                            if (result.isConfirmed) {
+                                                            Swal.fire('Guardado correctamente', '', 'success')
+                                                            } else if (result.isDenied) {
+                                                            Swal.fire('Los cambios no han sido guardados', '', 'error')
+                                                            }
+                                                        })}
+                                                </script>
                                             </div>
                                         </form>
                                     </div>
@@ -103,6 +120,8 @@
                 </footer>
             </div>
         </div>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="/TICDevSolutions/Sprints/2/Main/sweetalert.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
     </body>
