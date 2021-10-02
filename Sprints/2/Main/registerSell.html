@@ -11,7 +11,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
         <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-       
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
     </head>
     <body class="bg-primary">
@@ -161,7 +160,7 @@
                                                             denyButtonText: `No guardar`,
                                                         }).then((result) => {
                                                             if (result.isConfirmed) {
-                                                            Swal.fire('Guardado!', '', 'success')
+                                                            Swal.fire('Guardado correctamente', '', 'success')
                                                             } else if (result.isDenied) {
                                                             Swal.fire('Los cambios no han sido guardados', '', 'error')
                                                             }
