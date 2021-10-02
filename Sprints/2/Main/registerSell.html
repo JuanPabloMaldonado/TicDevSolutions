@@ -149,8 +149,9 @@
                                                 <label for="inputComentarios">Comentarios adicionales</label>
                                             </div>
                                             <div class="mt-4 mb-0">
-                                                <div class="d-grid"><button class="btn btn-primary btn-block" onclick="sweetalertclick()" href="#">Registrar nueva venta</button></div>
+                                                <div class="d-grid"><a class="btn btn-primary btn-block" onclick="sweetalertclick()" href="#">Registrar nueva venta</a></div>
                                                 <script>
+                                                    //Funcion ventana emergente registro
                                                     function sweetalertclick(){
                                                         Swal.fire({
                                                             title: 'Desea registrar la venta?',
@@ -159,7 +160,6 @@
                                                             confirmButtonText: 'Guardar',
                                                             denyButtonText: `No guardar`,
                                                         }).then((result) => {
-                                                            /* Read more about isConfirmed, isDenied below */
                                                             if (result.isConfirmed) {
                                                             Swal.fire('Guardado!', '', 'success')
                                                             } else if (result.isDenied) {
