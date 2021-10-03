@@ -13,6 +13,7 @@ import Buscarproducto from './components/buscarproducto/buscarproducto';
 import Buscarventa from './components/buscarventa/Buscarventa';
 import Actualizarproducto from './components/actualizarproducto/Actualizarproducto';
 import Actualizarventa from './components/actualizarventa/Actualizarventa';
+import Ventas from './components/ventas/Ventas';
 
 
 
@@ -35,6 +36,7 @@ function App() {
           <Route exact path="/buscarventa" component={Buscarventa} />
           <Route exact path="/actualizarproducto" component={Actualizarproducto} />
           <Route exact path="/actualizarventa" component={Actualizarventa} />
+          <Route exact path="/ventas" component={Ventas} />
         </Switch>
       </BrowserRouter>
     </div>

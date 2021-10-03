@@ -10,61 +10,61 @@ const Actualizarventa = () => {
 
     return (
         <div className="perfilComponent">
-            <div class="sb-nav-fixed">
+            <div className="sb-nav-fixed">
                 <div id="layoutAuthentication">
                     <div id="layoutAuthentication_content">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-7">
-                                    <div class="card shadow-lg border-0 rounded-lg mt-4">
-                                        <div class="card-header">
-                                            <h2 class="text-center font-weight-light my-4">Editar Venta</h2>
-                                            <h6 class="text-center font-weight-light my-4">Por favor verifique o actualice la
+                        <div className="container">
+                            <div className="row justify-content-center">
+                                <div className="col-lg-7">
+                                    <div className="card shadow-lg border-0 rounded-lg mt-4">
+                                        <div className="card-header">
+                                            <h2 className="text-center font-weight-light my-4">Editar Venta</h2>
+                                            <h6 className="text-center font-weight-light my-4">Por favor verifique o actualice la
                                                 venta descrita a continuación</h6>
                                         </div>
-                                        <div class="card-body">
+                                        <div className="card-body">
                                             <form>
                                                 <div>
-                                                    <h6 class="font-weight-light my-4">Información de la venta</h6>
+                                                    <h6 className="font-weight-light my-4">Información de la venta</h6>
                                                 </div>
-                                                <div class="form-floating mb-3">
-                                                    <input class="form-control" id="inputFactura" type="text"
+                                                <div className="form-floating mb-3">
+                                                    <input className="form-control" id="inputFactura" type="text"
                                                         disabled="disabled" placeholder="Ingrese # de Factura" />
                                                     <label for="inputFactura"># Factura</label>
                                                 </div>
-                                                <div class="form-floating mb-3">
-                                                    <input class="form-control" id="inputFecha" type="date"
+                                                <div className="form-floating mb-3">
+                                                    <input className="form-control" id="inputFecha" type="date"
                                                         placeholder="Ingrese Fecha de la venta" />
                                                     <label for="inputFecha">Fecha</label>
                                                 </div>
-                                                <div class="form-floating mb-3">
-                                                    <input class="form-control" id="inputIdCliente" type="text"
+                                                <div className="form-floating mb-3">
+                                                    <input className="form-control" id="inputIdCliente" type="text"
                                                         placeholder="Ingrese el NIT / CC del Cliente" />
                                                     <label for="inputIdCliente">NIT / CC Cliente</label>
                                                 </div>
-                                                <div class="form-floating mb-3">
-                                                    <input class="form-control" id="inputNombreCliente" type="text"
+                                                <div className="form-floating mb-3">
+                                                    <input className="form-control" id="inputNombreCliente" type="text"
                                                         placeholder="Ingrese Nombre Cliente" />
                                                     <label for="inputNombreCliente">Nombre Cliente</label>
                                                 </div>
-                                                <div class="form-floating mb-3">
-                                                    <input class="form-control" id="inputValor" type="text"
+                                                <div className="form-floating mb-3">
+                                                    <input className="form-control" id="inputValor" type="text"
                                                         placeholder="Ingrese el precio de venta" />
                                                     <label for="inputValor">Valor venta</label>
                                                 </div>
-                                                <div class="form-floating mb-3">
-                                                    <input class="form-control" id="inputValor" type="text"
+                                                <div className="form-floating mb-3">
+                                                    <input className="form-control" id="inputValor" type="text"
                                                         placeholder="Ingrese Forma de Pago" />
                                                     <label for="inputFormaP">Forma de Pago</label>
                                                 </div>
-                                                <div class="mt-4 mb-0">
-                                                    <div class="d-grid"><a class="btn btn-primary btn-block"
+                                                <div className="mt-4 mb-0">
+                                                    <div className="d-grid"><a className="btn btn-primary btn-block"
                                                         href="Ventas.html">Actualizar Venta</a></div>
                                                 </div>
                                             </form>
                                         </div>
-                                        <div class="card-footer text-center py-3">
-                                            <div class="small"><a href="Ventas.html">Regresar a la página de inicio</a>
+                                        <div className="card-footer text-center py-3">
+                                            <div className="small"><a href="Ventas.html">Regresar a la página de inicio</a>
                                             </div>
                                         </div>
                                     </div>
@@ -75,10 +75,10 @@ const Actualizarventa = () => {
                     </div>
                 </div >
                 <div id="layoutAuthentication_footer">
-                    <footer class="py-4 bg-light mt-auto">
-                        <div class="container-fluid px-4">
-                            <div class="d-flex align-items-center justify-content-between small">
-                                <div class="text-muted">Copyright &copy; TICDev's Solutions 2021 - Misión TIC 2022</div>
+                    <footer className="py-4 bg-light mt-auto">
+                        <div className="container-fluid px-4">
+                            <div className="d-flex align-items-center justify-content-between small">
+                                <div className="text-muted">Copyright &copy; TICDev's Solutions 2021 - Misión TIC 2022</div>
                                 <div>
                                     <a href="#">Política de privacidad</a>
                                     &middot;
