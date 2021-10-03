@@ -8,6 +8,8 @@ import Productos from './components/productos/Productos';
 import Roles from './components/roles/Roles';
 import Perfil from './components/perfil/Perfil';
 import Registroproducto from './components/registroproducto/Registroproducto';
+import Registroventa from './components/registroventa/Registroventa';
+import Buscarproducto from './components/buscarproducto/buscarproducto';
 
 
 
@@ -25,6 +27,8 @@ function App() {
           <Route exact path="/roles" component={Roles} />
           <Route exact path="/perfil" component={Perfil} />
           <Route exact path="/registroproducto" component={Registroproducto} />
+          <Route exact path="/registroventa" component={Registroventa} />
+          <Route exact path="/buscarproducto" component={Buscarproducto} />
         </Switch>
       </BrowserRouter>
     </div>
