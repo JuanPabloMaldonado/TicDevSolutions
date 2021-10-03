@@ -8,7 +8,7 @@ const Registro = () => {
 
 
     return (
-        <div className="loginComponent">
+        <div className="registroComponent">
             <div className="bg-primary">
                 <div id="layoutAuthentication">
                     <div id="layoutAuthentication_content">
