@@ -11,6 +11,8 @@ import Registroproducto from './components/registroproducto/Registroproducto';
 import Registroventa from './components/registroventa/Registroventa';
 import Buscarproducto from './components/buscarproducto/buscarproducto';
 import Buscarventa from './components/buscarventa/Buscarventa';
+import Actualizarproducto from './components/actualizarproducto/Actualizarproducto';
+import Actualizarventa from './components/actualizarventa/Actualizarventa';
 
 
 
@@ -31,6 +33,8 @@ function App() {
           <Route exact path="/registroventa" component={Registroventa} />
           <Route exact path="/buscarproducto" component={Buscarproducto} />
           <Route exact path="/buscarventa" component={Buscarventa} />
+          <Route exact path="/actualizarproducto" component={Actualizarproducto} />
+          <Route exact path="/actualizarventa" component={Actualizarventa} />
         </Switch>
       </BrowserRouter>
     </div>
