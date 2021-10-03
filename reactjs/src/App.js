@@ -10,6 +10,7 @@ import Perfil from './components/perfil/Perfil';
 import Registroproducto from './components/registroproducto/Registroproducto';
 import Registroventa from './components/registroventa/Registroventa';
 import Buscarproducto from './components/buscarproducto/buscarproducto';
+import Buscarventa from './components/buscarventa/Buscarventa';
 
 
 
@@ -29,6 +30,7 @@ function App() {
           <Route exact path="/registroproducto" component={Registroproducto} />
           <Route exact path="/registroventa" component={Registroventa} />
           <Route exact path="/buscarproducto" component={Buscarproducto} />
+          <Route exact path="/buscarventa" component={Buscarventa} />
         </Switch>
       </BrowserRouter>
     </div>
