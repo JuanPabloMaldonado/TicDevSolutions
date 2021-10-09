@@ -16,33 +16,17 @@ const Registro = () => {
                             <div className="container">
                                 <div className="row justify-content-center">
                                     <div className="col-lg-7">
-                                        <div><h3 className="text-center font-weight-light my-4 text-dark p-3 mb-2 bg-light">Bienvenido</h3></div>
                                         <div className="card shadow-lg border-0 rounded-lg mt-4">
                                             <div className="card-header"><h3 className="text-center font-weight-light my-4">Crear una nueva cuenta</h3></div>
                                             <div className="card-body">
                                                 <form>
-                                                    <div className="row mb-3">
-                                                        <div className="col-md-6">
-                                                            <div className="form-floating mb-3 mb-md-0">
-                                                                <input className="form-control" id="inputNombre" type="text" placeholder="Ingrese su nombre" />
-                                                                <label for="inputNombre">Nombre</label>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-6">
-                                                            <div className="form-floating">
-                                                                <input className="form-control" id="inputApellido" type="text" placeholder="Ingrese su apellido" />
-                                                                <label for="inputApellido">Apellidos</label>
-                                                            </div>
-                                                        </div>
+                                                    <div className="form-floating mb-3">
+                                                        <input className="form-control" id="inputNombre" type="text" placeholder="Ingrese su nombre" />
+                                                        <label for="inputNombre">Nombre</label>
                                                     </div>
                                                     <div className="form-floating mb-3">
-                                                        <input className="form-control" id="inputDate" name="date" type="text" placeholder="Ingrese su fecha de nacimiento" />
-                                                        <label for="inputDate">Fecha de nacimiento</label>
-                                                    </div>
-                                                
-                                                    <div className="form-floating mb-3">
-                                                        <input className="form-control" id="inputCel" type="text" placeholder="Ingrese su celular" />
-                                                        <label for="inputCel">Celular</label>
+                                                        <input className="form-control" id="inputEmail" type="email" placeholder="nombre@ejemplo.com" />
+                                                        <label for="inputEmail">Correo electrónico</label>
                                                     </div>
                                                     <div className="form-floating mb-3">
                                                         <label for="inputRol">Rol</label>
@@ -55,8 +39,12 @@ const Registro = () => {
                                                         </select>
                                                     </div>
                                                     <div className="form-floating mb-3">
-                                                        <input className="form-control" id="inputEmail" type="email" placeholder="nombre@ejemplo.com" />
-                                                        <label for="inputEmail">Correo electrónico</label>
+                                                        <label for="inputRol">Estado</label>
+                                                        <select className="text-center form-control" type="text" placeholder="Estado">
+                                                            <option disabled="disabled" selected="selected"></option>
+                                                            <option>Activo</option>
+                                                            <option>Inactivo</option>                                                   
+                                                        </select>
                                                     </div>
                                                     <div className="row mb-3">
                                                         <div className="col-md-6">

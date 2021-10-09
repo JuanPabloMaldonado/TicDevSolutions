@@ -20,37 +20,13 @@ const Actualizarproducto = () => {
                                         <div className="card shadow-lg border-0 rounded-lg mt-4">
                                             <div className="card-header">
                                                 <h2 className="text-center font-weight-light my-4">Actualizar Producto</h2>
-                                                <h6 className="text-center font-weight-light my-4">Por favor verifique o actualice el
-                                                    producto seleccionado a continuación</h6>
                                             </div>
                                             <div className="card-body">
                                                 <form>
-                                                    <div>
-                                                        <h6 className="font-weight-light my-4">Producto</h6>
-                                                    </div>
-                                                    <div className="row mb-3">
-                                                        <div className="col-md-6">
-                                                            <div className="form-floating mb-3 mb-md-0">
-
-                                                                <label for="inputID">ID</label>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-6">
-                                                            <div className="form-floating">
-
-                                                                <label for="inputUserName">Nombre de usuario</label>
-
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div>
-                                                        <h6 className="font-weight-light my-4">Información del producto</h6>
-                                                    </div>
                                                     <div className="form-floating mb-3">
                                                         <input className="form-control" id="inputUPC" type="text"
                                                             placeholder="Ingrese código UPC" />
-                                                        <label for="inputUPC">Código UPC</label>
+                                                        <label for="inputUPC">ID</label>
                                                     </div>
                                                     <div className="form-floating mb-3">
                                                         <input className="form-control" id="inputProducto" type="text"
@@ -58,49 +34,16 @@ const Actualizarproducto = () => {
                                                         <label for="inputProducto">Nombre</label>
                                                     </div>
                                                     <div className="form-floating mb-3">
-                                                        <input className="form-control" id="inputMarca" type="text"
-                                                            placeholder="Ingrese marca" />
-                                                        <label for="inputMarca">Marca</label>
+                                                        <input className="form-control" id="inputPrecioAd" type="number" placeholder="Ingrese el precio de Adquisición" />
+                                                        <label for="inputPrecio">Precio de Adquisición</label>
                                                     </div>
                                                     <div className="form-floating mb-3">
-                                                        <input className="form-control" id="inputModelo" type="text"
-                                                            placeholder="Ingrese modelo" />
-                                                        <label for="inputModelo">Modelo</label>
-                                                    </div>
-                                                    <div className="row mb-3">
-                                                        <div className="col-md-6">
-                                                            <div className="form-floating mb-3 mb-md-0">
-                                                                <input className="form-control" id="inputFabricacion" type="text"
-                                                                    placeholder="Ingrese el año de fabricación" />
-                                                                <label for="inputFabricacion">Año de fabricación</label>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-6">
-                                                            <div className="form-floating mb-3 mb-md-0">
-                                                                <input className="form-control" id="inputCompra" name="fcompra"
-                                                                    type="text" placeholder="dd/mm/yyyy" />
-                                                                <label for="inputCompra">Fecha de compra</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div className="form-floating mb-3">
-                                                        <input className="form-control" id="inputPrecio" type="text"
-                                                            placeholder="Ingrese el precio de venta" />
+                                                        <input className="form-control" id="inputPrecioV" type="number" placeholder="Ingrese el precio de venta" />
                                                         <label for="inputPrecio">Precio de venta</label>
-                                                    </div>
-
+                                                    </div>                                                
                                                     <div className="mt-4 mb-0">
-                                                        <div className="d-grid"><a className="btn btn-primary btn-block"
-                                                            onclick="sweetalertclick()" href="#">Actualizar
-                                                            producto</a>
+                                                        <div className="d-grid"><a className="btn btn-primary btn-block" onclick="sweetalertclick()" href="#">Actualizar producto</a>
                                                         </div>
-                                                       
-                                                    </div>
-                                                
-                                                    <div className ="d-grid"><a className ="btn btn-primary btn-block"
-                                                    href="searchProduct.html">Buscar
-                                                    producto</a>
                                                     </div>
                                                 </form>
                                             </div>

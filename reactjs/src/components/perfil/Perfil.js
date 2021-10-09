@@ -24,35 +24,9 @@ const Perfil = () => {
                                                 <form>
 
                                                     <div className="form-floating mb-3">
-                                                        <label for="inputRol">ID</label>
-                                                        <select className="text-center form-control" type="text" placeholder="Ingrese su rol">
-                                                            <option disabled="disabled" selected="selected"></option>
-                                                            <option>0001</option>
-                                                            <option>0002</option>
-                                                            <option>0003</option>
-                                                            <option>0004</option>
-                                                            <option>0005</option>
-                                                            <option>0006</option>
-                                                            <option>0007</option>
-                                                            <option>0008</option>
-                                                            <option>0009</option>
-                                                            <option>0010</option>
-                                                            <option>0011</option>
-                                                            <option>0012</option>
-                                                            <option>0013</option>
-                                                            <option>0014</option>
-                                                            <option>0015</option>
-                                                            <option>0016</option>
-                                                            <option>0017</option>
-                                                            <option>0018</option>
-                                                            <option>0019</option>
-                                                            <option>0020</option>
-                                                            <option>0021</option>
-                                                            <option>0022</option>
-                                                            <option>0023</option>
-                                                        </select>
+                                                        <input className="form-control" id="inputID" type="text" placeholder="ID" />
+                                                        <label for="inputID">ID</label>
                                                     </div>
-
                                                     <div className="form-floating mb-3">
                                                         <label for="inputRol">Rol</label>
                                                         <select className="text-center form-control" type="text" placeholder="Ingrese su rol">
@@ -64,18 +38,16 @@ const Perfil = () => {
                                                         </select>
                                                     </div>
                                                     <div className="form-floating mb-3">
-                                                        <label for="inputStatus">Estado</label>
-                                                        <select className="text-center form-control" type="text" placeholder="Ingrese su rol">
+                                                        <label for="inputRol">Estado</label>
+                                                        <select className="text-center form-control" type="text" placeholder="Estado">
                                                             <option disabled="disabled" selected="selected"></option>
                                                             <option>Activo</option>
                                                             <option>Inactivo</option>
-
                                                         </select>
                                                     </div>
-
                                                     <div className="mt-4 mb-0">
                                                         <div className="d-grid"><a className="btn btn-primary btn-block" oneclick="sweetalertclick" href="#">Actualizar</a></div>
-                                                
+
                                                     </div>
                                                 </form>
                                             </div>
