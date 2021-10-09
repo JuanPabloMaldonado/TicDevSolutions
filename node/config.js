@@ -1,8 +1,10 @@
-modulo.exports = {
-    database :{
+module.exports = {
+
+    database:{
         username: "root",
-        password: "123456",
+        password: "123456,",
         database: "store",
         host: "localhost"
     }
+
 }
