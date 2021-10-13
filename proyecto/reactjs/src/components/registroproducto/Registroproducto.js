@@ -12,7 +12,8 @@ const Registroproducto = () => {
     const changeField = (e) => {
         setFormValues({
             ...formValues,
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value        
+         
         })
     }
 
@@ -26,10 +27,11 @@ const Registroproducto = () => {
             headers: {
                 'Content-Type': 'application/json'
             }
+            
         }).then(res => res.json())
             .catch(error => console.error('Error:', error))
             .then(response => console.log('Success:', response));
-
+            window.alert("El producto se creo con exito");
     }
 
     return (
@@ -48,19 +50,19 @@ const Registroproducto = () => {
                                             <div className="card-body">
                                                 <form>
                                                     <div className="form-floating mb-3">
-                                                        <input className="form-control" id="inputProducto" type="text" placeholder="Ingrese el producto" />
-                                                        <label for="inputProducto">Nombre</label>
+                                                        <input onChange={changeField} value={formValues.nombre} name="nombre" type="text" class="form-control" id="nombre" placeholder="Ingrese el producto" />
+                                                        <label for="nombre">Nombre</label>
                                                     </div>
                                                     <div className="form-floating mb-3">
-                                                        <input className="form-control" id="inputPrecioAd" type="number" placeholder="Ingrese el precio de Adquisición" />
-                                                        <label for="inputPrecio">Precio de Adquisición</label>
+                                                        <input onChange={changeField} value={formValues.precioAd} name="precioAd" type="number" class="form-control" id="PrecioAd" placeholder="Precio de Adquisición" />
+                                                        <label for="PrecioAd">Precio de Adquisición</label>
                                                     </div>
                                                     <div className="form-floating mb-3">
-                                                        <input className="form-control" id="inputPrecioV" type="number" placeholder="Ingrese el precio de venta" />
-                                                        <label for="inputPrecio">Precio de venta</label>
+                                                        <input onChange={changeField} value={formValues.precioV} name="precioV" type="number" class="form-control" id="PrecioV" placeholder="Precio de Venta" />
+                                                        <label for="PrecioV">Precio de venta</label>
                                                     </div>
                                                     <div className="mt-4 mb-0">
-                                                        <div className="d-grid"><a className="btn btn-primary btn-block" onclick="sweetalertclick" href="#">Crear nuevo producto</a></div>
+                                                        <button type="submit" onClick={submit} class="btn btn-primary">Crear producto</button>
                                                     </div>
                                                 </form>
                                             </div>
