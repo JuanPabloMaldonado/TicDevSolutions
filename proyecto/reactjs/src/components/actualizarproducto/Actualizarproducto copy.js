@@ -7,34 +7,6 @@ import './scripts.js'
 
 const Actualizarproducto = () => {
 
-    const history = useHistory();
-    const [formValues, setFormValues] = useState({})
-    const [formTd, setFormId] = useState(0);
-
-    const changeField = (e) => {
-        setFormValues({
-            ...formValues,
-            [e.target.name]: e.target.value        
-         
-        })
-    }
-
-     const submit = (e) => {
-        e.preventDefault();
-        console.log('formValues', formValues);
-
-        fetch(`http://localhost:5000/api/products/${formTd}`, {
-            method: 'PATCH', // or 'PUT'
-            body: JSON.stringify(formValues), // data can be `string` or {object}!
-            headers: {
-                'Content-Type': 'application/json'
-            }
-            
-        }).then(res => res.json())
-            .catch(error => console.error('Error:', error))
-            .then(response => console.log('Success:', response));
-            window.alert("El producto se actualizo con exito");
-    }
 
     return (
         <div className="actualizarproductoComponent">
@@ -52,24 +24,26 @@ const Actualizarproducto = () => {
                                             <div className="card-body">
                                                 <form>
                                                     <div className="form-floating mb-3">
-                                                        <input onChange={(e) => {setFormId(e.target.value);}} name="id" type="text" class="form-control" id="id" placeholder="Ingrese el ID del producto" />
-                                                        <label for="id">ID</label>
+                                                        <input className="form-control" id="inputUPC" type="text"
+                                                            placeholder="Ingrese código UPC" />
+                                                        <label for="inputUPC">ID</label>
                                                     </div>
                                                     <div className="form-floating mb-3">
-                                                        <input onChange={changeField} value={formValues.nombre} name="nombre" type="text" class="form-control" id="nombre" placeholder="Ingrese el producto" />
-                                                        <label for="nombre">Nombre</label>
+                                                        <input className="form-control" id="inputProducto" type="text"
+                                                            placeholder="Ingrese el producto" />
+                                                        <label for="inputProducto">Nombre</label>
                                                     </div>
                                                     <div className="form-floating mb-3">
-                                                        <input onChange={changeField} value={formValues.precioAd} name="precioAd" type="number" class="form-control" id="PrecioAd" placeholder="Precio de Adquisición" />
-                                                        <label for="PrecioAd">Precio de Adquisición</label>
+                                                        <input className="form-control" id="inputPrecioAd" type="number" placeholder="Ingrese el precio de Adquisición" />
+                                                        <label for="inputPrecio">Precio de Adquisición</label>
                                                     </div>
                                                     <div className="form-floating mb-3">
-                                                        <input onChange={changeField} value={formValues.precioV} name="precioV" type="number" class="form-control" id="PrecioV" placeholder="Precio de Venta" />
-                                                        <label for="PrecioV">Precio de venta</label>
-                                                    </div>
+                                                        <input className="form-control" id="inputPrecioV" type="number" placeholder="Ingrese el precio de venta" />
+                                                        <label for="inputPrecio">Precio de venta</label>
+                                                    </div>                                                
                                                     <div className="mt-4 mb-0">
-                                                        <button type="submit" onClick={submit} class="btn btn-primary">Actualizar producto</button>
-
+                                                        <div className="d-grid"><a className="btn btn-primary btn-block" onclick="sweetalertclick()" href="#">Actualizar producto</a>
+                                                        </div>
                                                     </div>
                                                 </form>
                                             </div>
