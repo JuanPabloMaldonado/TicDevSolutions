@@ -7,35 +7,6 @@ import './scripts.js'
 
 const Perfil = () => {
 
-    const history = useHistory();
-    const [formValues, setFormValues] = useState({})
-    const [formTd, setFormId] = useState(0);
-
-    const changeField = (e) => {
-        setFormValues({
-            ...formValues,
-            [e.target.name]: e.target.value        
-         
-        })
-    }
-
-     const submit = (e) => {
-        e.preventDefault();
-        console.log('formValues', formValues);
-
-        fetch(`http://localhost:5000/api/users/${formTd}`, {
-            method: 'PATCH', // or 'PUT'
-            body: JSON.stringify(formValues), // data can be `string` or {object}!
-            headers: {
-                'Content-Type': 'application/json'
-            }
-            
-        }).then(res => res.json())
-            .catch(error => console.error('Error:', error))
-            .then(response => console.log('Success:', response));
-            window.alert("El usuario se actualizo con exito");
-    }
-
 
     return (
         <div className="perfilComponent">
@@ -52,13 +23,13 @@ const Perfil = () => {
                                             <div className="card-body">
                                                 <form>
 
-                                                    <div className="form-floating mb-3">                                                      
-                                                        <input onChange={(e) => {setFormId(e.target.value);}} name="id" type="text" class="form-control" id="id" placeholder="Ingrese el ID del usuario" />
-                                                        <label for="id">ID</label>                                                       
+                                                    <div className="form-floating mb-3">
+                                                        <input className="form-control" id="inputID" type="text" placeholder="ID" />
+                                                        <label for="inputID">ID</label>
                                                     </div>
                                                     <div className="form-floating mb-3">
-                                                        <label for="rol">Rol</label>
-                                                        <select className="text-center form-control" onChange={changeField} value={formValues.rol} name="rol" id="id" type="text" placeholder="Ingrese su rol">
+                                                        <label for="inputRol">Rol</label>
+                                                        <select className="text-center form-control" type="text" placeholder="Ingrese su rol">
                                                             <option disabled="disabled" selected="selected"></option>
                                                             <option>Administrador</option>
                                                             <option>Vendedor</option>
@@ -67,15 +38,16 @@ const Perfil = () => {
                                                         </select>
                                                     </div>
                                                     <div className="form-floating mb-3">
-                                                        <label for="estado">Estado</label>
-                                                        <select className="text-center form-control" onChange={changeField} value={formValues.estado} name="estado" id="estado" type="text" placeholder="Estado">
+                                                        <label for="inputRol">Estado</label>
+                                                        <select className="text-center form-control" type="text" placeholder="Estado">
                                                             <option disabled="disabled" selected="selected"></option>
                                                             <option>Activo</option>
                                                             <option>Inactivo</option>
                                                         </select>
                                                     </div>
-                                                    <div className="mt-4 mb-0">                                        
-                                                        <button type="submit" onClick={submit} class="btn btn-primary">Actualizar Usuario</button>
+                                                    <div className="mt-4 mb-0">
+                                                        <div className="d-grid"><a className="btn btn-primary btn-block" oneclick="sweetalertclick" href="#">Actualizar</a></div>
+
                                                     </div>
                                                 </form>
                                             </div>
