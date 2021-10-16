@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router'
 import './login.css'
 import './styles.css'
-import GoogleLogin from 'react-google-login';
 
 
 const Login = () => {
@@ -20,12 +19,7 @@ const Login = () => {
     const submit = (e) => {
         e.preventDefault();
 
-        history.push('/productos')
-    }
-    
-    const responseGoogle = (response) => {
-        console.log(response);
-        history.push('/productos')
+        history.push('/home')
     }
 
     return (
@@ -57,15 +51,9 @@ const Login = () => {
                                                     </div>
 
                                                     <div>
-                                                        
-
-                                                        <GoogleLogin
-                                                            clientId="191945881559-gcets8fjg3hhf3fu4g75n5tnscmqfo3e.apps.googleusercontent.com"
-                                                            buttonText="Ingresar"
-                                                            onSuccess={responseGoogle}
-                                                            onFailure={responseGoogle}
-                                                            cookiePolicy={'single_host_origin'}
-                                                        />
+                                                        <a href="index.html" class="btn-google btn-user">
+                                                            <i className="fab fa-google fa-fw"></i> Ingresar con Google
+                                                        </a>
 
                                                     </div>
 
