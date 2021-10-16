@@ -14,6 +14,7 @@ import Buscarventa from './components/buscarventa/Buscarventa';
 import Actualizarproducto from './components/actualizarproducto/Actualizarproducto';
 import Actualizarventa from './components/actualizarventa/Actualizarventa';
 import Ventas from './components/ventas/Ventas';
+import AuthGoogle from './components/authGoogle/AuthGoogle'
 
 
 
@@ -24,7 +25,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Switch>
-          <Route exact path="/" component={Login} />
+          <Route exact path="/" component={AuthGoogle} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/registro" component={Registro} />
           <Route exact path="/productos" component={Productos} />

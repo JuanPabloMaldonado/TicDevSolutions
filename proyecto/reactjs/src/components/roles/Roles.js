@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router'
 import './roles.css'
 import './styles.css'
@@ -9,15 +9,23 @@ const Roles = () => {
 
     const [users, setUsers] = useState([])
 
-    fetch('http://localhost:5000/api/users')
-        .then(response => response.json())
-        .then(data => {
-            console.log(data)
-            setUsers(data);
-        }
-        ).catch((error) => {
-            console.log(error);
-        });
+    useEffect(() => {
+        leer();
+    }, [])
+
+    const leer = () => {
+
+        fetch('http://localhost:5000/api/users')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                setUsers(data);
+            }
+            ).catch((error) => {
+                console.log(error);
+            });
+
+    }
 
     return (
         <div className="rolesComponent">

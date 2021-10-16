@@ -5,19 +5,26 @@ import './styles.css'
 import './scripts.js'
 
 const Productos = () => {
+
     const [products, setProducts] = useState([])
 
-    fetch('http://localhost:5000/api/products')
-        .then(response => response.json())
-        .then(data => {
-            console.log(data)
-            setProducts(data);
-        }
-        ).catch((error) => {
-            console.log(error);
-        });
+    useEffect(() => {
+        leer();
+    }, [])
 
+    const leer = () => {
 
+        fetch('http://localhost:5000/api/products')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                setProducts(data);
+            }
+            ).catch((error) => {
+                console.log(error);
+            });
+
+    }
 
     return (
         <div className="productosComponent">

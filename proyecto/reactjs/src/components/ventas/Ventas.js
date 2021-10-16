@@ -9,6 +9,12 @@ const Ventas = () => {
 
     const [sales, setSales] = useState([])
 
+    useEffect(() => {
+        leer();
+    },[])
+    
+    const leer = () => {
+
     fetch('http://localhost:5000/api/sales')
         .then(response => response.json())
         .then(data => {
@@ -19,6 +25,7 @@ const Ventas = () => {
             console.log(error);
         });
      
+    }
 
     return (
         <div className="perfilComponent">
