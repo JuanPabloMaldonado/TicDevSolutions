@@ -14,6 +14,7 @@ const Buscarproducto = () => {
     const [precioV, setPrecioV] = useState(0);
 
       const submit = (e) => {
+          e.preventDefault();
         fetch(`http://localhost:5000/api/products/${formId}`)
             .then(response => response.json())
             .then(data => {

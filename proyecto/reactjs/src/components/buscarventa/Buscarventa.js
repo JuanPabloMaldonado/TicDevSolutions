@@ -4,14 +4,55 @@ import './buscarventa.css'
 import './styles.css'
 import './scripts.js'
 
-
+ 
 const Buscarventa = () => {
+
+    const [sales, setSales] = useState([])
+    const [formId, setFormId] = useState(0);
+
+    const submit = (e) => {
+        e.preventDefault();
+        fetch(`http://localhost:5000/api/sales/${formId}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                setSales(data);
+
+            }
+            ).catch((error) => {
+                console.log(error);
+            });
+
+        {
+            (sales !== undefined && sales.length > 0) ?
+            sales.map(item => {
+                return (<tr>
+
+                    <th scope="row"> {item.id}</th>
+                    <th> {item.nombre}</th>
+                    <th> {item.nitCc}</th>
+                    <th> {item.valor}</th>
+                    <th> {item.formaPago}</th>
+                    <th> {item.createdAt}</th>
+
+                </tr>);
+            }) :
+            sales !== undefined ?
+                <div>
+                    Ningun producto coincide con la busqueda
+                </div>
+                :
+                <div>
+                    Error en la conexión, intenta mas tarde
+                </div>
+        }
+    }
 
 
     return (
         <div className="buscarventaComponent">
             <div className="sb-nav-fixed" className="bg-primary">
-           
+
 
                 <div id="layoutAuthentication">
                     <div id="layoutAuthentication_content">
@@ -25,25 +66,32 @@ const Buscarventa = () => {
                                             </div>
                                             <div className="card-body">
                                                 <form>
-                                                    <div className="form-floating mb-3">
-                                                        <input className="form-control" id="inputID" type="text" placeholder="0000" />
-                                                        <label for="inputID"># Factura</label>
+                                                <div className="form-floating mb-3">
+                                                        <input onChange={(e) => { setFormId(e.target.value); }} name="id" type="text" class="form-control" id="id" placeholder="Ingrese el ID del producto" />
+                                                        <label for="id">ID</label>
                                                     </div>
                                                     <div className="form-floating mb-3">
-                                                        <input className="form-control" id="inputDescripcion" type="text"
-                                                            placeholder="Descripción" />
-                                                        <label for="inputDescripcion">NIT / CC Cliente </label>
+                                                        <input value={sales.nitCc} name="nitCc" type="number" class="form-control" id="nitCc" placeholder="Ingrese el NIT / CC del Cliente" />
+                                                        <label for="nitCc">NIT / CC Cliente</label>
                                                     </div>
                                                     <div className="form-floating mb-3">
-                                                        <input className="form-control" id="inputDescripcion" type="text"
-                                                            placeholder="Descripción" />
-                                                        <label for="inputDescripcion">Nombre Cliente </label>
+                                                        <input  value={sales.nombre} name="nombre" type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre del cliente" />
+                                                        <label for="nombre">Nombre Cliente</label>
                                                     </div>
-
-                                                    <div>
+                                                    <div className="form-floating mb-3">
+                                                        <input  value={sales.valor} name="valor" type="number" class="form-control" id="valor" placeholder="Valor de Factura" />
+                                                        <label for="valor">Valor</label>
+                                                    </div>     
+                                                    <div className="form-floating mb-3">
+                                                        <input  value={sales.formaPago} name="formaPago" type="text" class="form-control" id="formaPago" placeholder="Ingrese su forma de pago"/>
+                                                        <label for="formaPago">Forma de pago</label>
                                                     </div>
-                                                    <div className="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                        <a className="btn btn-primary" href="updateVenta.html">Buscar</a>
+                                                    <div className="form-floating mb-3">
+                                                        <input  value={sales.createdAt} name="createdAt" type="text" class="form-control" id="createdAt" placeholder="Fecha de Factura" />
+                                                        <label for="createdAt">Fecha de Factura</label>
+                                                    </div>
+                                                    <div className="mt-4 mb-0">
+                                                        <button type="submit" onClick={submit} class="btn btn-primary">Buscar Venta</button>
                                                     </div>
                                                 </form>
                                             </div>

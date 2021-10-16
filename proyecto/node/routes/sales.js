@@ -1,43 +1,41 @@
 const express = require('express');
 const router = express.Router();
-const User = require('../database/models/User');
+const Sale = require('../database/models/Sale');
 const Sequelize = require('sequelize');
 
-// INDEX /api/users
+// INDEX /api/sales
 router.get('/', (req, res) => {
-    User.findAll().then(users => {
-        res.json(users);
+    Sale.findAll().then(sales => {
+        res.json(sales);
     })
 })
 
-// CREATE
+// CREATE /api/sales
 router.post('/', (req, res) => {
-    User.create({
+    Sale.create({
         nombre: req.body.nombre,
-        email: req.body.email,
-        rol: req.body.rol,
-        estado: req.body.estado,
-        password: req.body.password
-    }).then(user => {
-        res.json(user);
+        nitCc: req.body.nitCc,
+        valor: req.body.valor,
+        formaPago: req.body.formaPago
+    }).then(sale => {
+        res.json(sale);
     })
 });
 
-// READ /api/users/:id
+// READ /api/sales/:id
 router.get('/:id', (req, res) => {
-    User.findByPk(req.params.id).then(user => {
-        res.json(user);
+    Sale.findByPk(req.params.id).then(sale => {
+        res.json(sale);
     })
 });
-
-// UPDATE /api/users/:id
+ 
+// UPDATE /api/sales/:id
 router.patch('/:id', (req, res) => {
-    User.update({
+    Sale.update({
         nombre: req.body.nombre,
-        email: req.body.email,
-        rol: req.body.rol,
-        estado: req.body.estado,
-        password: req.body.password
+        nitCc: req.body.nitCc,
+        valor: req.body.valor,
+        formaPago: req.body.formaPago
     }, {
         where: {
             id: req.params.id
@@ -47,9 +45,9 @@ router.patch('/:id', (req, res) => {
     });
 });
 
-// DELETE /api/users/:id
+// DELETE /api/sales/:id
 router.delete('/:id', (req, res) => {
-    User.destroy({
+    Sale.destroy({
         where: {
             id: req.params.id
         }

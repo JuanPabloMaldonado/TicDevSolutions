@@ -3,7 +3,7 @@ import { useHistory } from 'react-router'
 import './registroproducto.css'
 import './styles.css'
 import './scripts.js'
-
+ 
 
 const Registroproducto = () => {
     const history = useHistory();

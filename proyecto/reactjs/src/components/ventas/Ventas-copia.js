@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useHistory } from 'react-router'
 import './ventas.css'
 import './styles.css'
@@ -7,18 +7,6 @@ import './scripts.js'
 
 const Ventas = () => {
 
-    const [sales, setSales] = useState([])
-
-    fetch('http://localhost:5000/api/sales')
-        .then(response => response.json())
-        .then(data => {
-            console.log(data)
-            setSales(data);
-        }
-        ).catch((error) => {
-            console.log(error);
-        });
-     
 
     return (
         <div className="perfilComponent">
@@ -115,40 +103,58 @@ const Ventas = () => {
                                     <b>Ventas</b>
                                 </div>
                                 <div class="card-body">
-                                    <table class="table">
+                                    <table id="datatablesSimple">
                                         <thead>
                                             <tr>
-                                                <th scope="col"># Factura</th>
-                                                <th scope="col">Fecha</th>
-                                                <th scope="col">NIT / CC Cliente</th>
-                                                <th scope="col">Nombre Cliente</th>
-                                                <th scope="col">Valor</th>
-                                                <th scope="col">Forma de pago</th>
+                                                <th># Factura</th>
+                                                <th>Fecha</th>
+                                                <th>NIT / CC Cliente</th>
+                                                <th>Nombre Cliente</th>
+                                                <th>Valor</th>
+                                                <th>Forma de pago</th>
+
+
                                             </tr>
-                                        </thead>	
-                                        <tbody>										
-										 {(sales !== undefined && sales.length > 0) ?
-                                            sales.map(item => {
-                                                return (<tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th># Factura</th>
+                                                <th>Fecha</th>
+                                                <th>NIT / CC Cliente</th>
+                                                <th>Nombre Cliente</th>
+                                                <th>Valor</th>
+                                                <th>Forma de pago</th>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+                                            <tr>
+                                                <td>0001</td>
+                                                <td>2011/04/25</td>
+                                                <td>901124445</td>
+                                                <td> Radamel Falcao</td>
+                                                <td>$320,800</td>
+                                                <td>Efectivo</td>
 
-                                                    <th scope="row"> {item.id}</th>
-                                                    <th> {item.createdAt}</th>
-                                                    <th> {item.nitCc}</th>     
-                                                    <th> {item.nombre}</th>                                                 
-                                                    <th> {item.valor}</th>
-                                                    <th> {item.formaPago}</th>
+                                            </tr>
+                                            <tr>
+                                                <td>0002</td>
+                                                <td>2011/07/25</td>
+                                                <td>900457654</td>
+                                                <td>Leo Messi</td>
+                                                <td>$170,750</td>
+                                                <td>Tarjeta</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0003</td>
+                                                <td>2009/01/12</td>
+                                                <td>79554874</td>
+                                                <td>Kyliam Mbappe</td>
+                                                <td>$86,000</td>
+                                                <td>On line</td>
 
-                                                </tr>);
-                                            }) :
-                                            sales !== undefined ?
-                                                <div>
-                                                    Ningun producto coincide con la busqueda
-                                                </div>
-                                                :
-                                                <div>
-                                                    Error en la conexiÃ³n, intenta mas tarde
-                                                </div>
-                                        }       
+
+                                            </tr>
+
                                         </tbody>
                                     </table>
                                     <div class="container">

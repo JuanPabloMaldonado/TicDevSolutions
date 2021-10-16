@@ -6,7 +6,33 @@ import './scripts.js'
 
 
 const Registroventa = () => {
+    const history = useHistory();
+    const [formValues, setFormValues] = useState({})
 
+    const changeField = (e) => {
+        setFormValues({
+            ...formValues,
+            [e.target.name]: e.target.value
+
+        })
+    }
+
+    const submit = (e) => {
+        e.preventDefault();
+        console.log('formValues', formValues);
+
+        fetch('http://localhost:5000/api/sales', {
+            method: 'POST', // or 'PUT'
+            body: JSON.stringify(formValues), // data can be `string` or {object}!
+            headers: {
+                'Content-Type': 'application/json'
+            }
+
+        }).then(res => res.json())
+            .catch(error => console.error('Error:', error))
+            .then(response => console.log('Success:', response));
+        window.alert("La venta se registro con exito");
+    }
 
     return (
         <div className="perfilComponent">
@@ -19,123 +45,36 @@ const Registroventa = () => {
                                     <div className="col-lg-7">
                                         <div className="card shadow-lg border-0 rounded-lg mt-5">
                                             <div className="card-header">
-                                                <h2 className="text-center font-weight-light my-4">Formulario de ingreso de nueva venta</h2>
-                                                <h6 className="text-center font-weight-light my-4">Por favor registre la nueva venta ingresando la información a continuación</h6>
+                                                <h2 className="text-center font-weight-light my-4">Nueva venta</h2>                                                
                                             </div>
                                             <div className="card-body">
                                                 <form>
-                                                    <div><h6 className="font-weight-light my-4">Registrado por (Admin)</h6></div>
-                                                    <div className="row mb-3">
-                                                        <div className="col-md-6">
-                                                            <div className="form-floating mb-3 mb-md-0">
-                                                                <input className="form-control" id="inputID" type="text" placeholder="Ingrese ID de usuario" />
-                                                                <label for="inputID">ID</label>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-6">
-                                                            <div className="form-floating">
-                                                                <input className="form-control" id="inputUserName" type="text" placeholder="Ingrese el nombre de usuario" />
-                                                                <label for="inputUserName">Nombre de usuario</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div><h6 className="font-weight-light my-4">Información del comprador</h6></div>
-                                                    <div className="row mb-3">
-                                                        <div className="col-md-6">
-                                                            <div className="form-floating mb-3 mb-md-0">
-                                                                <input className="form-control" id="inputNombreC" type="text" placeholder="Ingrese nombre comprador" />
-                                                                <label for="inputNombreC">Nombre</label>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-6">
-                                                            <div className="form-floating">
-                                                                <input className="form-control" id="inputApellidoC" type="text" placeholder="Ingrese apellido comprador" />
-                                                                <label for="inputApellidoC">Apellidos</label>
-                                                            </div>
-                                                        </div>
+                                                    <div className="form-floating mb-3">
+                                                        <input onChange={changeField} value={formValues.nitCc} name="nitCc" type="number" class="form-control" id="nitCc" placeholder="Ingrese el NIT / CC del Cliente" />
+                                                        <label for="nitCc">NIT / CC Cliente</label>
                                                     </div>
                                                     <div className="form-floating mb-3">
-                                                        <input className="form-control" id="inputEmail" type="email" placeholder="nombre@ejemplo.com" />
-                                                        <label for="inputEmail">Correo electrónico</label>
+                                                        <input onChange={changeField} value={formValues.nombre} name="nombre" type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre del cliente" />
+                                                        <label for="nombre">Nombre Cliente</label>
                                                     </div>
                                                     <div className="form-floating mb-3">
-                                                        <input className="form-control" id="inputCelC" type="text" placeholder="Ingrese celular comprador" />
-                                                        <label for="inputCelC">Celular</label>
+                                                        <input onChange={changeField} value={formValues.valor} name="valor" type="number" class="form-control" id="valor" placeholder="Valor de Factura" />
+                                                        <label for="valor">Valor</label>
                                                     </div>
-                                                    <div><h6 className="font-weight-light my-4">Información de entrega</h6></div>
-                                                    <div className="form-floating mb-3">
-                                                        <input className="form-control" id="inputDireccionC" type="text" placeholder="Ingrese dirección comprador" />
-                                                        <label for="inputDireccionC">Dirección de entrega</label>
-                                                    </div>
-                                                    <div className="form-floating mb-3">
-                                                        <input className="form-control" id="inputInfo" type="text" placeholder="Información adicional" />
-                                                        <label for="inputInfo">Información adicional (Edificio - Apartamento)</label>
-                                                    </div>
-                                                    <div className="row mb-3">
-                                                        <div className="col-md-4">
-                                                            <div className="form-floating mb-3 mb-md-0">
-                                                                <input className="form-control" id="inputPais" type="text" placeholder="Ingrese País" />
-                                                                <label for="inputPais">País</label>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-4">
-                                                            <div className="form-floating mb-3 mb-md-0">
-                                                                <input className="form-control" id="inputDepartamento" type="text" placeholder="Ingrese Departamento" />
-                                                                <label for="inputDepartamento">Departamento</label>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-4">
-                                                            <div className="form-floating mb-3 mb-md-0">
-                                                                <input className="form-control" id="inputCiudad" type="text" placeholder="Ingrese Ciudad" />
-                                                                <label for="inputCiudad">Ciudad</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div className="form-floating mb-3">
-                                                        <input className="form-control" id="inputPrecioE" type="text" placeholder="Precio de envío" />
-                                                        <label for="inputPrecioE">Precio del envío</label>
-                                                    </div>
-                                                    <div><h6 className="font-weight-light my-4">Información de la venta</h6></div>
-                                                    <div className="form-floating mb-3">
-                                                        <input className="form-control" id="inputNombreP" type="text" placeholder="Nombre producto" />
-                                                        <label for="inputNombreP">Nombre del producto</label>
-                                                    </div>
-                                                    <div className="form-floating mb-3">
-                                                        <input className="form-control" id="inputUPC" type="text" placeholder="Código UPC" />
-                                                        <label for="inputUPC">Código UPC</label>
-                                                    </div>
-                                                    <div className="form-floating mb-3">
-                                                        <input className="form-control" id="inputVenta" name="fventa" type="text" placeholder="dd/mm/yyyy" />
-                                                        <label for="inputVenta">Fecha de venta</label>
-                                                    </div>
-                                                   
-                                                    <div className="row mb-3">
-                                                        <div className="col-md-4">
-                                                            <div className="form-floating mb-3 mb-md-0">
-                                                                <input className="form-control" id="inputCantidad" type="text" placeholder="Ingrese la cantidad" />
-                                                                <label for="inputCantidad">Cantidad</label>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-4">
-                                                            <div className="form-floating mb-3 mb-md-0">
-                                                                <input className="form-control" id="inputPrecioP" type="text" placeholder="Precio producto" />
-                                                                <label for="inputPrecioP">Precio unidad</label>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-4">
-                                                            <div className="form-floating mb-3 mb-md-0">
-                                                                <input className="form-control" id="inputPrecioT" type="text" placeholder="Precio Total" />
-                                                                <label for="inputPrecioT">Precio total</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div className="form-floating mb-3">
-                                                        <input className="form-control" id="inputComentarios" type="text" placeholder="Comentarios adicionales" />
-                                                        <label for="inputComentarios">Comentarios adicionales</label>
+                                                    <div className="form-floating mb-3">                                                       
+                                                        <select className="form-control" onChange={changeField} value={formValues.formaPago} name="formaPago" id="formaPago" type="text" placeholder="Ingrese su forma de pago">
+                                                            <option disabled="disabled" selected="selected"></option>
+                                                            <option>Efectivo</option>
+                                                            <option>Transferencia</option>
+                                                            <option>Tarjeta Debito</option>
+                                                            <option>Tarjeta credito</option>
+                                                            <option>On line</option>
+                                                            <option>Cheque</option>
+                                                        </select>
+                                                        <label for="formaPago">Forma de Pago</label>
                                                     </div>
                                                     <div className="mt-4 mb-0">
-                                                        <div className="d-grid"><a className="btn btn-primary btn-block" onclick="sweetalertclick()" href="#">Registrar nueva venta</a></div>
-                                                        
+                                                        <button type="submit" onClick={submit} class="btn btn-primary">Registrar nueva venta</button>
                                                     </div>
                                                 </form>
                                             </div>

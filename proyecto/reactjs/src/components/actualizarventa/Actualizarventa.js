@@ -8,6 +8,35 @@ import './scripts.js'
 const Actualizarventa = () => {
 
 
+ const history = useHistory();
+    const [formValues, setFormValues] = useState({})
+    const [formTd, setFormId] = useState(0);
+
+    const changeField = (e) => {
+        setFormValues({
+            ...formValues,
+            [e.target.name]: e.target.value        
+         
+        })
+    }
+
+     const submit = (e) => {
+        e.preventDefault();
+        console.log('formValues', formValues);
+
+        fetch(`http://localhost:5000/api/sales/${formTd}`, {
+            method: 'PATCH', // or 'PUT'
+            body: JSON.stringify(formValues), // data can be `string` or {object}!
+            headers: {
+                'Content-Type': 'application/json'
+            }
+            
+        }).then(res => res.json())
+            .catch(error => console.error('Error:', error))
+            .then(response => console.log('Success:', response));
+            window.alert("La venta se actualizo con exito");
+    }
+
     return (
         <div className="perfilComponent">
             <div className="sb-nav-fixed">
@@ -19,47 +48,40 @@ const Actualizarventa = () => {
                                     <div className="card shadow-lg border-0 rounded-lg mt-4">
                                         <div className="card-header">
                                             <h2 className="text-center font-weight-light my-4">Editar Venta</h2>
-                                            <h6 className="text-center font-weight-light my-4">Por favor verifique o actualice la
-                                                venta descrita a continuación</h6>
+                                      
                                         </div>
                                         <div className="card-body">
-                                            <form>
-                                                <div>
-                                                    <h6 className="font-weight-light my-4">Información de la venta</h6>
+                                            <form>                                          
+                                                <div className="form-floating mb-3">                                                    
+                                                    <input onChange={(e) => {setFormId(e.target.value);}} name="id" type="text" class="form-control" id="id" placeholder="Ingrese # de Factura" />
+                                                    <label for="id"># Factura</label>												
+                                                </div>											
+                                                <div className="form-floating mb-3">                                                  
+                                                    <input onChange={changeField} value={formValues.nitCc} name="nitCc" type="number" class="form-control" id="nitCc" placeholder="Ingrese el NIT / CC del Cliente" />
+                                                   	<label for="nitCc">NIT / CC Cliente</label>
                                                 </div>
-                                                <div className="form-floating mb-3">
-                                                    <input className="form-control" id="inputFactura" type="text"
-                                                        disabled="disabled" placeholder="Ingrese # de Factura" />
-                                                    <label for="inputFactura"># Factura</label>
+												<div className="form-floating mb-3">
+                                                    <input onChange={changeField} value={formValues.nombre} name="nombre" type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre del cliente" />
+                                                    <label for="nombre">Nombre Cliente</label>
                                                 </div>
-                                                <div className="form-floating mb-3">
-                                                    <input className="form-control" id="inputFecha" type="date"
-                                                        placeholder="Ingrese Fecha de la venta" />
-                                                    <label for="inputFecha">Fecha</label>
+												<div className="form-floating mb-3">
+                                                    <input onChange={changeField} value={formValues.valor} name="valor" type="number" class="form-control" id="valor" placeholder="Valor de Factura" />
+                                                    <label for="valor">Valor</label>
                                                 </div>
-                                                <div className="form-floating mb-3">
-                                                    <input className="form-control" id="inputIdCliente" type="text"
-                                                        placeholder="Ingrese el NIT / CC del Cliente" />
-                                                    <label for="inputIdCliente">NIT / CC Cliente</label>
-                                                </div>
-                                                <div className="form-floating mb-3">
-                                                    <input className="form-control" id="inputNombreCliente" type="text"
-                                                        placeholder="Ingrese Nombre Cliente" />
-                                                    <label for="inputNombreCliente">Nombre Cliente</label>
-                                                </div>
-                                                <div className="form-floating mb-3">
-                                                    <input className="form-control" id="inputValor" type="text"
-                                                        placeholder="Ingrese el precio de venta" />
-                                                    <label for="inputValor">Valor venta</label>
-                                                </div>
-                                                <div className="form-floating mb-3">
-                                                    <input className="form-control" id="inputValor" type="text"
-                                                        placeholder="Ingrese Forma de Pago" />
-                                                    <label for="inputFormaP">Forma de Pago</label>
-                                                </div>
-                                                <div className="mt-4 mb-0">
-                                                    <div className="d-grid"><a className="btn btn-primary btn-block"
-                                                        href="Ventas.html">Actualizar Venta</a></div>
+												<div className="form-floating mb-3">                                                        
+                                                        <select className=" form-control" onChange={changeField} value={formValues.formaPago} name="formaPago" id="formaPago" type="text" placeholder="Ingrese su forma de pago">
+                                                            <option disabled="disabled" selected="selected"></option>
+                                                            <option>Efectivo</option>
+															<option>Transferencia</option>
+                                                            <option>Tarjeta Debito</option>
+															<option>Tarjeta credito</option>
+                                                            <option>On line</option>
+                                                            <option>Cheque</option>
+                                                        </select>
+                                                        <label for="formaPago">Forma de Pago</label>
+                                                    </div>
+                                                <div className="mt-4 mb-0">                                                   
+													 <button type="submit" onClick={submit} class="btn btn-primary">Actualizar Venta</button>
                                                 </div>
                                             </form>
                                         </div>

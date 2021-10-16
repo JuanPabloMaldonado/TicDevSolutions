@@ -20,7 +20,6 @@ app.get('/', function (req, res) {
 
 app.use('/api/products', require('./routes/products'));
 app.use('/api/users', require('./routes/users'));
-app.use('/api/sales', require('./routes/sales'));
 
 
 // Arrancamos el servidor
