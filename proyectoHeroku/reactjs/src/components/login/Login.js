@@ -20,12 +20,12 @@ const Login = () => {
     const submit = (e) => {
         e.preventDefault();
 
-        history.push('/productos')
+        //history.push('/productos')
     }
     
     const responseGoogle = (response) => {
         console.log(response);
-        history.push('/productos')
+        //history.push('/productos')
     }
 
     return (
